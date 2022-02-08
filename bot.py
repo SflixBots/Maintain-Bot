@@ -31,16 +31,15 @@ You Can't Use This Bot Right Now.You Will Get a Message On This Bot's Channel If
 BOT_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="Channel", url=f"https://telegram.me/{updatesc}"),
-            InlineKeyboardButton(text="Support", url=f"https://telegram.me/{supportc}"),
+            InlineKeyboardButton(text="Support", url="https://t.me/TameSflix"),
         ]
     ]
 )
 
 
-@Bot.on_message(filters.private)
+@Bot.on_message(filters.command("start"))
 async def start(bot, update):
-    text = BOT_TEXT.format(update.from_user.mention)
+    text = "⚠️ Access Denied"
     reply_markup = BOT_BUTTONS
     await update.reply_text(
         text=text, disable_web_page_preview=True, reply_markup=reply_markup
